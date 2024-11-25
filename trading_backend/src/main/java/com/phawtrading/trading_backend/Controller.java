@@ -21,4 +21,6 @@ public class Controller {
         //JSON-Objekt als Antwort
         return ResponseEntity.ok().body("{\"message\": \"Hello, PHAW!\"}");
     }
+
+    
 }
