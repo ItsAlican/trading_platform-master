@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
           children: <Widget>[
             TextField(
               controller: usernameController,
-              decoration: const InputDecoration(labelText: 'Username'),
+              decoration: const InputDecoration(labelText: 'Usernamer'),
             ),
             TextField(
               controller: passwordController,
