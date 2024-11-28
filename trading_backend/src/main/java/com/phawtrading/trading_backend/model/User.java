@@ -1,24 +1,33 @@
 package com.phawtrading.trading_backend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "users")  // This will map to a 'users' table in the database
+@Data
 public class User {
 
     @Id  // Marks the primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-generated values for primary key
     private Long id;
 
+    @Column(name = "username", nullable = false)
     private String username;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "password", nullable = false)
     private String password;
 
-    // Add role or other fields if needed
+    @Column(name = "role", nullable = false)
     private String role;
 
     // Getters and setters
