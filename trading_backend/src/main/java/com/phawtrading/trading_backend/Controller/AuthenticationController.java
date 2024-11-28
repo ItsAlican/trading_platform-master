@@ -14,6 +14,7 @@ public class AuthenticationController {
 
     @Autowired
     private AuthenticationService authenticationService;
+    
 
     // @PostMapping("/login")
     // public String login(@RequestParam String username, @RequestParam String password) {
@@ -26,19 +27,24 @@ public class AuthenticationController {
     // }
     @PostMapping("/login")
     public String login(@RequestBody User user) {
+        
         String username = user.getUsername();
         String password = user.getPassword();
+
         
         String token = authenticationService.login(username, password);
         if (token != null) {
-            return "Bearer " + token;  // Token im Bearer Format zurückgeben
+            System.out.println("Login Success " );
+            return "Bearer ";  // Token im Bearer Format zurückgeben
         }
+        System.out.println("Invalid credentials" );
         return "Invalid credentials";  // Fehler, wenn Anmeldedaten ungültig
     }
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
         // Passiertes User-Objekt direkt an die Service-Methode weitergeben
+        
         authenticationService.registerUser(user);
         return ResponseEntity.ok("User registered successfully!");
     }
